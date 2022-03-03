@@ -3,8 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:so_je/shared/thame.dart';
 import 'package:so_je/ui/widgets/custome_button.dart';
 
-class SignInPage extends StatelessWidget {
-  const SignInPage({Key? key}) : super(key: key);
+class SignUpPage extends StatelessWidget {
+  const SignUpPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +41,7 @@ class SignInPage extends StatelessWidget {
               height: 35,
             ),
             Text(
-              'MASUK',
+              'DAFTAR',
               style: blackStyle.copyWith(
                 fontSize: 23,
                 fontWeight: FontWeight.w700,
@@ -54,7 +54,7 @@ class SignInPage extends StatelessWidget {
             TextFormField(
               decoration: InputDecoration(
                 contentPadding: const EdgeInsets.symmetric(horizontal: 5),
-                hintText: 'EMAIL/NO.HP',
+                hintText: 'MASUKAN EMAIL/NO.HP ANDA',
                 hintStyle: GoogleFonts.roboto(
                   fontSize: 14,
                   color: kGreenColor,
@@ -68,7 +68,22 @@ class SignInPage extends StatelessWidget {
               decoration: InputDecoration(
                 contentPadding:
                     const EdgeInsets.symmetric(horizontal: 5, vertical: 15),
-                hintText: 'PASSWORD',
+                hintText: 'MASUKAN PASSWORD BARU',
+                suffixIcon: const Icon(Icons.visibility),
+                hintStyle: GoogleFonts.roboto(
+                  fontSize: 14,
+                  color: kGreenColor,
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            TextFormField(
+              decoration: InputDecoration(
+                contentPadding:
+                    const EdgeInsets.symmetric(horizontal: 5, vertical: 15),
+                hintText: 'KONFIRMASI PASSWORD BARU',
                 suffixIcon: const Icon(Icons.visibility),
                 hintStyle: GoogleFonts.roboto(
                   fontSize: 14,
@@ -99,15 +114,27 @@ class SignInPage extends StatelessWidget {
             const SizedBox(
               height: 15,
             ),
-            CustomeButton(
-              title: 'Daftar Akun',
-              textcolor: kWhiteColor,
-              color: kGreenColor,
-              onPressed: () {
-                Navigator.pushNamedAndRemoveUntil(
-                    context, '/sign-up', (route) => false);
-              },
-            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Sudah mempunyai akun? ',
+                  style: greenStyle.copyWith(),
+                ),
+                GestureDetector(
+                  child: Text(
+                    'Login',
+                    style: greenStyle.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  onTap: () {
+                    Navigator.pushNamedAndRemoveUntil(
+                        context, '/sign-in', (route) => false);
+                  },
+                ),
+              ],
+            )
           ],
         ),
       ),
