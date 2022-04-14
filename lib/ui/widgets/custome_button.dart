@@ -21,22 +21,29 @@ class CustomeButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 53,
-      width: width,
-      child: TextButton(
-        onPressed: onPressed,
-        style: TextButton.styleFrom(
-          backgroundColor: color,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(30),
+      padding: const EdgeInsets.all(2),
+      decoration: BoxDecoration(
+        color: kGreenColor,
+        borderRadius: BorderRadius.circular(32),
+      ),
+      child: SizedBox(
+        height: 53,
+        width: width,
+        child: TextButton(
+          onPressed: onPressed,
+          style: TextButton.styleFrom(
+            backgroundColor: color,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(30),
+            ),
           ),
-        ),
-        child: Text(
-          title,
-          style: GoogleFonts.roboto(
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-            color: textcolor,
+          child: Text(
+            title,
+            style: GoogleFonts.roboto(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+              color: textcolor,
+            ),
           ),
         ),
       ),
